@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 import {TaskType, TodoList} from "./TodoList";
-import {TopCars} from "./Component";
-import {Button} from "./component/Button";
+// import {TopCars} from "./Component";
+// import {Button} from "./component/Button";
 import {v1} from "uuid";
 
 
@@ -48,27 +48,27 @@ function App() {
             : tasks
 
 
-    const Button1Foo = (subscriber: string, age: number) => {
-        console.log(subscriber, age)
-    }
+    // const Button1Foo = (subscriber: string, age: number) => {
+    //     console.log(subscriber, age)
+    // }
 
-    const Button2Foo = (subscriber: string, age: number) => {
-        console.log(subscriber, age)
-    }
+    // const Button2Foo = (subscriber: string, age: number) => {
+    //     console.log(subscriber, age)
+    // }
 
-    const topCars = [
-        {id: 1, manufacturer: 'BMW', model: 'm5cs'},
-        {id: 2, manufacturer: 'Mercedes', model: 'e63s'},
-        {id: 3, manufacturer: 'Audi', model: 'rs6'},
-    ]
+    // const topCars = [
+    //     {id: 1, manufacturer: 'BMW', model: 'm5cs'},
+    //     {id: 2, manufacturer: 'Mercedes', model: 'e63s'},
+    //     {id: 3, manufacturer: 'Audi', model: 'rs6'},
+    // ]
 
 
-    let [a, setA] = useState(1)
+    // let [a, setA] = useState(1)
 
-    const onClickHandler = () => {
-        setA(++a);
-        console.log(a)
-    }
+    // const onClickHandler = () => {
+    //     setA(++a);
+    //     console.log(a)
+    // }
 
 
     return (
@@ -83,12 +83,12 @@ function App() {
             />
 
 
-            <TopCars cars={topCars}/>
+            {/*<TopCars cars={topCars}/>*/}
 
-            <Button name={"Chanel-1"} callBack={() => Button1Foo("I am VASYA", 21)}/>
-            <Button name={"Chanel-2"} callBack={() => Button2Foo("I am IVAN", 31)}/>
-            <h1>{a}</h1>
-            <button onClick={onClickHandler}>number</button>
+            {/*<Button name={"Chanel-1"} callBack={() => Button1Foo("I am VASYA", 21)}/>*/}
+            {/*<Button name={"Chanel-2"} callBack={() => Button2Foo("I am IVAN", 31)}/>*/}
+            {/*<h1>{a}</h1>*/}
+            {/*<button onClick={onClickHandler}>number</button>*/}
 
 
             {/*<TodoList title={todoListTitle} tasks={tasks}/>*/}
