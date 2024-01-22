@@ -39,6 +39,20 @@ export const TodoList: FC<TodoListPropsType> = (
         addTask(taskTitle)
         setTaskTitle("")
     }
+
+    // const getFilteredTasks = (allTasks: Array<TaskType>, filterValue: FilterValuesType) => {
+    //     switch (filterValue) {
+    //         case "active":
+    //             return allTasks.filter(t => !t.isDone);
+    //         case "completed":
+    //             return allTasks.filter(t => !t.isDone);
+    //         default:
+    //             return allTasks;
+    //     }
+    // }
+
+    // const tasksForTodoList: Array<TaskType> = getFilteredTasks(tasks,)
+
     const tasksItems: JSX.Element = tasks.length !== 0
         ? <ul>
             {tasks.map(task => {
