@@ -13,6 +13,7 @@ function App() {
     console.log(v1());
 
     const todoListTitle = "What to Learn"
+    const [filter, setFilter] = useState<FilterValuesType>("all")
 
     const [tasks, setTasks] = useState<Array<TaskType>>(
         [
@@ -39,7 +40,6 @@ function App() {
         setTasks(nextState)
     }
 
-    const [filter, setFilter] = useState<FilterValuesType>("all")
 
     const   changeTodoListFilter = (filter: FilterValuesType) => {
         setFilter(filter)
@@ -86,6 +86,7 @@ const tasksForTodoList: Array<TaskType> = getFilteredTasks (tasks, filter)
     return (
         <div className="App">
             <TodoList
+                filter={filter}
                 title={todoListTitle}
                 tasks={tasksForTodoList}
                 removeTask={removeTask}
