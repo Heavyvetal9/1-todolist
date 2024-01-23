@@ -16,6 +16,7 @@ type TodoListPropsType = {
     addTask: (title: string) => void
     removeTask: (taskId: string) => void
     changeTodoListFilter: (filter: FilterValuesType) => void
+    changeTaskStatus: (taskId: string, isDone: boolean) => void
 }
 export const TodoList: FC<TodoListPropsType> = (
     {
@@ -23,7 +24,8 @@ export const TodoList: FC<TodoListPropsType> = (
         tasks,
         addTask,
         removeTask,
-        changeTodoListFilter
+        changeTodoListFilter,
+        changeTaskStatus
     }) => {
 
     const [taskTitle, setTaskTitle] = useState("")
@@ -32,7 +34,7 @@ export const TodoList: FC<TodoListPropsType> = (
     const addTaskOnKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => event.key === "Enter" && addNewTaskTitleHandler()
 
     const changeFilterHandlerCreator = (filter: FilterValuesType) => {
-        return () => changeTodoListFilter (filter)
+        return () => changeTodoListFilter(filter)
     }
 
     const addNewTaskTitleHandler = () => {
@@ -40,27 +42,18 @@ export const TodoList: FC<TodoListPropsType> = (
         setTaskTitle("")
     }
 
-    // const getFilteredTasks = (allTasks: Array<TaskType>, filterValue: FilterValuesType) => {
-    //     switch (filterValue) {
-    //         case "active":
-    //             return allTasks.filter(t => !t.isDone);
-    //         case "completed":
-    //             return allTasks.filter(t => !t.isDone);
-    //         default:
-    //             return allTasks;
-    //     }
-    // }
-
-    // const tasksForTodoList: Array<TaskType> = getFilteredTasks(tasks,)
-
     const tasksItems: JSX.Element = tasks.length !== 0
         ? <ul>
             {tasks.map(task => {
                 const removeTaskHandler = () => removeTask(task.id)
+                const changeTaskStatusHandler = (event: ChangeEvent<HTMLInputElement>) => changeTaskStatus(task.id, event.currentTarget.checked)
                 return (
                     <li key={task.id}>
-                        <input type="checkbox" checked={task.isDone}/>
-                        <span>{task.title}</span>
+                        <input type="checkbox"
+                               checked={task.isDone}
+                               onChange={changeTaskStatusHandler}
+                        />
+                        <span className={task.isDone? "task-done": "task"}>{task.title}</span>
                         <Button title="x" onClickHandler={removeTaskHandler}/>
                     </li>
                 )
