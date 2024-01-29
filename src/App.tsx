@@ -76,7 +76,7 @@ const tasksForTodoList: Array<TaskType> = getFilteredTasks (tasks, filter)
 
 
     // let [a, setA] = useState(1)
-
+    //
     // const onClickHandler = () => {
     //     setA(++a);
     //     console.log(a)
